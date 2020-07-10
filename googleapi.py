@@ -5,10 +5,6 @@ import wave
 
 from audio import Audio
 
-f = wave.open('male.wav', 'r')
-sample_rate_hertz = f.getframerate()
-data = f.readframes(f._nframes)
-
 
 class S2T:
     def __init__(self):
@@ -44,6 +40,11 @@ class T2S:
             input=synthesis_input, voice=self.voice, audio_config=self.audio_config
         )
         return response
+
+
+f = wave.open('male.wav', 'r')
+sample_rate_hertz = f.getframerate()
+data = f.readframes(f._nframes)
 
 s2t = S2T()
 text_response = s2t(sample_rate_hertz, data)
