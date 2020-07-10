@@ -7,10 +7,11 @@ from audio import Audio
 
 
 class S2T:
-    def __init__(self):
+    def __init__(self, sample_rate):
         self.client = speech_v1p1beta1.SpeechClient()
+        self.sample_rate = sample_rate
 
-    def __call__(self, sample_rate, data):
+    def __call__(self, data):
         language_code = "en-US"
         encoding = enums.RecognitionConfig.AudioEncoding.LINEAR16
         config = {
@@ -19,7 +20,8 @@ class S2T:
             "encoding": encoding,
         }
         audio = {"content": data}
-        return self.client.recognize(config, audio)
+        result = self.client.recognize(config, audio)
+        return result.results[0].alternatives[0].transcript # pick first of first
 
 
 class T2S:
@@ -46,14 +48,11 @@ f = wave.open('male.wav', 'r')
 sample_rate_hertz = f.getframerate()
 data = f.readframes(f._nframes)
 
-s2t = S2T()
-text_response = s2t(sample_rate_hertz, data)
-
-# First alternative is the most probable result
-text = text_response.results[0].alternatives[0].transcript
+s2t = S2T(sample_rate_hertz)
+text_response = s2t(data)
 
 t2s = T2S()
-voice_response = t2s(text)
+voice_response = t2s(text_response)
 
 voice_len = len(voice_response.audio_content)
 player = Audio('output', sample_rate_hertz, 1.0)

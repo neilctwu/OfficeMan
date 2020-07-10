@@ -18,12 +18,10 @@ def butter_bandpass_filter(data, lowcut, highcut, fs, order=5):
     return y
 
 @clock # 0.18sec
-def bp_filter(binary_wav_list: list):
-    bwav = b''.join(binary_wav_list)
+def bp_filter(bwav: bytes):
     frames = int(len(bwav)/2)
     wav = list(struct.unpack('{}h'.format(frames), bwav))
-    bp_wav = butter_bandpass_filter(wav, 300, 3600,
-                                    (frames*2)/len(binary_wav_list), order=5)
+    bp_wav = butter_bandpass_filter(wav, 300, 3600, frames*2, order=5)
     bp_wav = [int(x) for x in bp_wav]
     bp_bwav = struct.pack('{}h'.format(frames), *tuple(bp_wav))
     return bp_bwav
