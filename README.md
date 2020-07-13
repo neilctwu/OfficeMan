@@ -9,6 +9,7 @@ https://haritora.net/script.cgi
 
 ### Bertusage:
 https://qiita.com/kenta1984/items/7f3a5d859a15b20657f3
+
 https://github.com/sonoisa/sentence-transformers
 
 
