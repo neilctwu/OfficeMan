@@ -1,5 +1,20 @@
 # OfficeMan
 
+## Usage
+
+```bash
+$ python main.py
+```
+
+## TODO
+
+1. Structurize files
+
+2. Speaker Independent 
+
+3. Demo video
+
+
 ## Reference
 
 
