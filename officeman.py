@@ -2,6 +2,7 @@ import socket
 
 from processor import Processor
 from googleapi import S2T, T2S
+from chatbot import ChatMan
 from audio import Audio
 
 
@@ -11,6 +12,7 @@ class OfficeMan:
         self.init_server(('localhost', port))
         self.processor = Processor(self.sample_rate)
         self.s2t = S2T(self.sample_rate)
+        self.chat = ChatMan('ckpt/39900_checkpoint.tar')
         self.t2s = T2S(self.sample_rate)
         # TODO: independence speaker
         self.speaker = Audio('output', self.sample_rate, 1.0)
@@ -30,6 +32,7 @@ class OfficeMan:
         x = self.processor(x)
         print(x)
         x = self.s2t(x)
+        x = self.chat(x)
         x = self.t2s(x)
 
         voice_len = len(x.audio_content)

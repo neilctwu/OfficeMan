@@ -2,6 +2,8 @@ from google.cloud import speech_v1p1beta1
 from google.cloud.speech_v1p1beta1 import enums
 from google.cloud import texttospeech
 
+# import wave
+# from audio import Audio
 
 class S2T:
     def __init__(self, sample_rate):
@@ -40,3 +42,17 @@ class T2S:
         )
         return response
 
+# f = wave.open('male.wav', 'r')
+# sample_rate_hertz = f.getframerate()
+# data = f.readframes(f._nframes)
+
+# s2t = S2T(sample_rate_hertz)
+# text_response = s2t(data)
+
+# t2s = T2S(sample_rate_hertz)
+# voice_response = t2s(text_response)
+
+# voice_len = len(voice_response.audio_content)
+# player = Audio('output', sample_rate_hertz, 1.0)
+# for x in range(44, voice_len, player.chunk):
+#     player.stream.write(voice_response.audio_content[x:(x+player.chunk)])
