@@ -1,9 +1,9 @@
 import socket
 
-from processor import Processor
-from googleapi import S2T, T2S
-from chatbot import ChatMan
-from audio import Audio
+from src.processor import Processor
+from src.googleapi import S2T, T2S
+from src.chatbot import ChatMan
+from src.audio import Audio
 
 
 class OfficeMan:

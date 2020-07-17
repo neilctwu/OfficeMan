@@ -1,8 +1,8 @@
 from torch import nn
 
-from dataprep import *
-from utils import normalizeString
-from params import *
+from utils.utils import *
+from utils.utils import normalizeString
+from src.nn.params import *
 
 class GreedySearchDecoder(nn.Module):
     def __init__(self, encoder, decoder, device='cuda'):

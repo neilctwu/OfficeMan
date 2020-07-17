@@ -2,7 +2,7 @@ import struct
 import math
 from scipy.signal import butter, lfilter
 
-from utils import clock
+from utils.utils import clock
 
 def butter_bandpass(lowcut, highcut, fs, order=5):
     nyq = 0.5 * fs

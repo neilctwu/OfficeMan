@@ -1,4 +1,4 @@
-from dsp import bp_filter
+from utils.dsp import bp_filter
 
 
 class Processor:

@@ -1,5 +1,5 @@
-from recorder import Recorder
-from officeman import OfficeMan
+from src.recorder import Recorder
+from src.officeman import OfficeMan
 from threading import Thread
 
 

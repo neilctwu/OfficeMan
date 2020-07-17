@@ -1,5 +1,5 @@
-from audio import Audio
-from dsp import get_rms
+from src.audio import Audio
+from utils.utils import get_rms
 
 import socket
 import time

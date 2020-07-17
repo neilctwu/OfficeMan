@@ -1,5 +1,5 @@
 import time
-from voc import *
+from src.nn.voc import *
 import unicodedata
 import re
 

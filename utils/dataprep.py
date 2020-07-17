@@ -1,7 +1,7 @@
 import itertools
 import torch
 
-from params import *
+from src.nn.params import *
 
 def indexesFromSentence(voc, sentence):
     return [voc.word2index[word] for word in sentence.split(' ')] + [EOS_token]

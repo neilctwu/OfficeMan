@@ -1,8 +1,8 @@
-from encoder import EncoderRNN
-from decoder import LuongAttnDecoderRNN
-from eval import GreedySearchDecoder, evaluate
-from utils import loadPrepareData, normalizeString
-from params import *
+from src.nn.encoder import EncoderRNN
+from src.nn.decoder import LuongAttnDecoderRNN
+from src.nn.eval import GreedySearchDecoder, evaluate
+from utils.utils import loadPrepareData, normalizeString
+from src.nn.params import *
 
 from torch import nn
 import torch
